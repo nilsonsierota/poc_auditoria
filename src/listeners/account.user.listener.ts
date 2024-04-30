@@ -9,9 +9,22 @@ export class AccountUserListener {
   @OnEvent('user.created')
   async handleOrderCreatedEvent(event: Prisma.JsonObject) {
     console.log('Criei usuario, criei um log de auditoria');
+
+    //Para usar o objeto se precisar fazer alguma manipulação
+    const {
+      id,
+      email,
+      password,
+      active,
+      name,
+      shopifyIntegrationId,
+      createdAt,
+      updatedAt,
+    } = event;
+
     await this.prisma.audit.create({
       data: {
-        type: 'created',
+        type: 'user.created',
         description: event,
       },
     });

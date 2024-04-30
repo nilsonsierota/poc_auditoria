@@ -25,9 +25,7 @@ export class AccountService {
       where: { id: createdUser.id },
     });
 
-    this.eventEmitter.emit('user.created', {
-      createdUser,
-    });
+    this.eventEmitter.emit('user.created', createdUser);
 
     return {
       id: createdUser.id,
@@ -55,10 +53,7 @@ export class AccountService {
         },
       });
 
-      this.eventEmitter.emit('user.updated', {
-        type: 'updated',
-        description: { id, ...updatedUser },
-      });
+      this.eventEmitter.emit('user.updated', updatedUser);
 
       return {
         message: 'User updated successfully',
@@ -89,11 +84,7 @@ export class AccountService {
         },
       });
 
-      this.eventEmitter.emit('user.deleted', {
-        name: id,
-        type: 'deleted',
-        description: { id, ...user },
-      });
+      this.eventEmitter.emit('user.deleted', user);
 
       return {
         statusCode: 200,
