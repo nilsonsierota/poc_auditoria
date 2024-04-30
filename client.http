@@ -5,7 +5,7 @@ POST {{baseUrl}}/v1/user/create/account
 Content-Type: application/json
 
 {
-  "email": "email11@email.com",
+  "email": "email13@email.com",
   "password": "123456"
 }
 
@@ -16,7 +16,7 @@ PUT {{baseUrl}}/v1/user/update/profile
 Content-Type: application/json
 
 {
-  "id": "26685073-b37d-4942-94df-4287dc7f15ec",
+  "id": "0fdf03d6-48ef-4439-b4af-0c8ca9f35ad5",
   "name": "nome email 5"
 }
 
@@ -27,7 +27,7 @@ PUT {{baseUrl}}/v1/user/delete/account
 Content-Type: application/json
 
 {
-    "id": "26685073-b37d-4942-94df-4287dc7f15ec"
+    "id": "0fdf03d6-48ef-4439-b4af-0c8ca9f35ad5"
 }
 
 ###

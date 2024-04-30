@@ -34,7 +34,7 @@ export class AccountUserListener {
     console.log('Alterei usuario, criei um log de auditoria');
     await this.prisma.audit.create({
       data: {
-        type: 'updated',
+        type: 'user.updated',
         description: event,
       },
     });
@@ -44,7 +44,7 @@ export class AccountUserListener {
     console.log('Deletei usuario, criei um log de auditoria');
     await this.prisma.audit.create({
       data: {
-        type: 'deleted',
+        type: 'user.deleted',
         description: event,
       },
     });
