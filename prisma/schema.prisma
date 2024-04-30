@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String  @id @default(uuid())
+  email    String  @unique
+  password String
+  active   Boolean @default(true)
+  name     String  @default("")
+
+  shopifyIntegrationId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model ShopifyIntegration {
+  id String @id @default(uuid())
+
+  shopify_token           String  @unique
+  shopify_api_secret      String  @unique
+  shopify_store_name      String  @unique
+  active_checkout_gateway Boolean @default(true)
+  skip_shopify_cart       Boolean @default(true)
+
+  integration_status Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Audit {
+  id          String @id @default(uuid())
+  type        String @default("")
+  description Json
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}

@@ -1,0 +1,39 @@
+@baseUrl = http://localhost:3333
+
+# @name create_account
+POST {{baseUrl}}/v1/user/create/account
+Content-Type: application/json
+
+{
+  "email": "email5@email.com",
+  "password": "123456"
+}
+
+###
+
+# @name update_account
+PUT {{baseUrl}}/v1/user/update/profile
+Content-Type: application/json
+
+{
+  "id": "26685073-b37d-4942-94df-4287dc7f15ec",
+  "name": "nome email 5"
+}
+
+###
+
+# @name delete_account
+PUT {{baseUrl}}/v1/user/delete/account
+Content-Type: application/json
+
+{
+    "id": "26685073-b37d-4942-94df-4287dc7f15ec"
+}
+
+###
+
+# @name get_auditoria
+GET {{baseUrl}}/v1/auditoria
+Content-Type: application/json
+
+###
